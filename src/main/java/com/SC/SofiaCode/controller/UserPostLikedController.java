@@ -18,7 +18,7 @@ public class UserPostLikedController {
     @Autowired
     private User_Post_Liked_Service service;
 
-    @PostMapping("/api/new/add-post-liked")
+    @PostMapping("api/user/new/add-post-liked")
     public ResponseEntity<?> addPostLikedByUser(@RequestParam String email, String postId ){
         CommonResponse commonResponse = new CommonResponse();
         Long postIdPares = Long.parseLong(postId);

@@ -40,6 +40,8 @@ public interface PostService {
 
    Boolean updatePostById(Long id, PostRequest postRequest);
 
+   List<PostResponse> getPostLikedByUser(String email);
+
 
 
 

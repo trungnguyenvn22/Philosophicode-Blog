@@ -268,4 +268,32 @@ public class PostServiceImpl implements PostService {
         return false;
     }
 
+    @Override
+    public List<PostResponse> getPostLikedByUser(String email) {
+        List<Post> post = new ArrayList<>();
+        List<PostResponse> result = new ArrayList<>();
+
+        try{
+            post = postRepository.getPostLikedByUser(email);
+            if(post != null){
+                for (Post p: post
+                     ) {
+
+                    result.add(new PostResponse(p.getId(),p.getTitle(),p.getDescription(),p.getImage(),p.getSlug(),p.getCreateAt(),p.getUpdateAt(),p.getContent(),p.getIsDelete(),p.getAuthor().getUsername(), p.getCategory().getTitle()));
+                }
+            }
+            if (result != null){
+                return result;
+            }else{
+                return null;
+            }
+
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return null;
+    }
+
 }

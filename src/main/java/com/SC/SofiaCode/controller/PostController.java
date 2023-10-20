@@ -204,6 +204,28 @@ public class PostController {
 
         }catch (Exception e){
             e.getMessage();
+            commonResponseList.setErrorCode(ErrorCode.FAIL.getKey());
+            commonResponseList.setMessage(ErrorCode.FAIL.getValue());
+        }
+        return ResponseEntity.ok(commonResponseList);
+    }
+
+    @GetMapping("api/user/post-liked")
+    ResponseEntity<CommonResponseList> getPostLikedByUser(@RequestParam String email){
+        try {
+            List<PostResponse> responseList = postService.getPostLikedByUser(email);
+            List<Object> result = new ArrayList<>();
+            if(responseList != null) {
+                for (PostResponse p : responseList
+                ) {
+                    result.add(p);
+                }
+            }
+            commonResponseList.setErrorCode(ErrorCode.SUCCESS.getKey());
+            commonResponseList.setMessage(ErrorCode.SUCCESS.getValue());
+            commonResponseList.setDataResponseList(result);
+
+        }catch (Exception e){
             e.getMessage();
             commonResponseList.setErrorCode(ErrorCode.FAIL.getKey());
             commonResponseList.setMessage(ErrorCode.FAIL.getValue());

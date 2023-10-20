@@ -38,6 +38,7 @@ public class SecurityConfig {
                 .requestMatchers("view/**").permitAll()
                 .requestMatchers("api/edit/**").hasAuthority("ROLE_ADMIN")
                 .requestMatchers("api/new/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers("api/user/new/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
                 .requestMatchers("api/remove/**").hasAuthority("ROLE_ADMIN")
                 .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
                 .requestMatchers("/user/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")

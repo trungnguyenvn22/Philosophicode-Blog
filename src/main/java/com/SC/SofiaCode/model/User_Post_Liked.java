@@ -25,4 +25,8 @@ public class User_Post_Liked {
     @JoinColumn(name = "post_id")
     Post post;
 
+    public User_Post_Liked(User user, Post post) {
+        this.user = user;
+        this.post = post;
+    }
 }

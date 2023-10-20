@@ -30,6 +30,9 @@ public interface PostRepository extends JpaRepository<Post, Long>, CrudRepositor
     List<Post> searchPostsByName(String postName);
 
 
+    @Query(value = "select p from  Post p join User_Post_Liked upl join User u on u.id = upl.user.id and upl.post.id = p.id where u.email = ?1")
+    List<Post> getPostLikedByUser(String email);
+
 
 
 }

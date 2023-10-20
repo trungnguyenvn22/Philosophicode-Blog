@@ -30,22 +30,22 @@ public class SofiaCodeApplication {
 		return new BCryptPasswordEncoder();
 	}
 
-//	@Bean
-//	CommandLineRunner lineRunner(UserService userService){
-//		return args -> {
-//			userService.saveRole(new Role("ROLE_ADMIN"));
-//			userService.saveRole(new Role("ROLE_USER"));
-//			userService.saveRole(new Role("MANAGER"));
-//
-//			userService.saveUser(new User("TrungAdmin","hoangtrung210400@gmail.com","123456", new HashSet<>()));
-//			userService.saveUser(new User("TrungUser","demodecoding@gmail.com","123456", new HashSet<>()));
-//			userService.saveUser(new User("TrungManager","trungnhhe141622@fpt.edu.vn","123456", new HashSet<>()));
-//
-//			userService.addToUser("hoangtrung210400@gmail.com","ROLE_ADMIN");
-//			userService.addToUser("demodecoding@gmail.com","ROLE_USER");
-//			userService.addToUser("trungnhhe141622@fpt.edu.vn","MANAGER");
-//		};
-//	}
+	@Bean
+	CommandLineRunner lineRunner(UserService userService){
+		return args -> {
+			userService.saveRole(new Role("ROLE_ADMIN"));
+			userService.saveRole(new Role("ROLE_USER"));
+			userService.saveRole(new Role("MANAGER"));
+
+			userService.saveUser(new User("TrungAdmin","hoangtrung210400@gmail.com","123456", new HashSet<>()));
+			userService.saveUser(new User("TrungUser","demodecoding@gmail.com","123456", new HashSet<>()));
+			userService.saveUser(new User("TrungManager","trungnhhe141622@fpt.edu.vn","123456", new HashSet<>()));
+
+			userService.addToUser("hoangtrung210400@gmail.com","ROLE_ADMIN");
+			userService.addToUser("demodecoding@gmail.com","ROLE_USER");
+			userService.addToUser("trungnhhe141622@fpt.edu.vn","MANAGER");
+		};
+	}
 
 
 }

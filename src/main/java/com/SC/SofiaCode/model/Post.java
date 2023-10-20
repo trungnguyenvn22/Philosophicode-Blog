@@ -32,8 +32,10 @@ public class Post {
     private String image;
     @Column(name = "slug")
     private String slug;
+    @Temporal(TemporalType.DATE)
     @Column(name = "create_At")
     private Date createAt;
+    @Temporal(TemporalType.DATE)
     @Column(name = "update_At")
     private Date updateAt;
     @Column(name = "content",columnDefinition = "TEXT")
@@ -50,10 +52,10 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User author;
 
-    @ManyToMany(mappedBy = "posts")
-    @Fetch(value = FetchMode.SELECT)
-    @JsonIgnore
-    private Set<User> users = new HashSet<>();
+    @OneToMany(mappedBy = "post")
+    Set<User_Post_Liked> userPostLiked;
+
+
 
     public Post( String title,String description, String image, String slug, Date createAt, Date updateAt, String content, Boolean isDelete, Category category, User author) {
 

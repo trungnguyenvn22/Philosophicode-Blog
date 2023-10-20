@@ -1,6 +1,7 @@
 package com.SC.SofiaCode.model.user;
 
 import com.SC.SofiaCode.model.Post;
+import com.SC.SofiaCode.model.User_Post_Liked;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -55,8 +56,8 @@ public class User implements UserDetails {
 
 
 
-    @Column(name = "mobile_number", unique = true)
-    private String mobileNumber;
+    @Column(name = "address")
+    private String address;
 
 
     @Temporal(TemporalType.DATE)
@@ -83,12 +84,8 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Role> roles = new LinkedHashSet<>();
 
-    @ManyToMany
-    @JoinTable(name = "user_post_like",
-    joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "post_id")
-    )
-    private Set<Post> posts = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "user")
+    Set<User_Post_Liked> userPostLiked;
 
     // method implement
     @Override

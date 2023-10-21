@@ -18,6 +18,8 @@ const PostAddNew = () => {
   const [content, setContent] = useState("");
   const schema = yup.object({
     title: yup.string().required("Must Have title"),
+    slug: yup.string().required("Must Have slug"),
+    image: yup.string().required("Must Have image link"),
   });
   const {
     control,
@@ -40,8 +42,7 @@ const PostAddNew = () => {
       const postData = {
         title: values.title,
         description: values.description,
-        image:
-          "https://images.unsplash.com/photo-1682687219356-e820ca126c92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
+        image: values.image,
         slug: values.slug,
         createAt: null,
         updateAt: null,
@@ -100,7 +101,7 @@ const PostAddNew = () => {
             <Field>
               <Label>Image public:</Label>
               <Input
-                name="image-public"
+                name="image"
                 type="text"
                 placeholder="Enter your slug..."
                 control={control}

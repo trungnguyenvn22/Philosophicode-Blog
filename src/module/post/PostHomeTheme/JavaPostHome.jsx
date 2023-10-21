@@ -17,18 +17,19 @@ const JavaPostHome = () => {
   return (
     <div className="flex max-w-[70%] mx-auto my-10">
       <div>
-        {data && data.length > 0
-          ? data.map((post) => (
-              <PostThemeLarge {...post} key={post.title}></PostThemeLarge>
-            ))
-          : null}
+        {data && data.length > 0 ? (
+          <PostThemeLarge {...data[0]}></PostThemeLarge>
+        ) : null}
       </div>
 
       <div>
-        <PostThemeOne></PostThemeOne>
-        <PostThemeOne></PostThemeOne>
-        <PostThemeOne></PostThemeOne>
-        <PostThemeOne></PostThemeOne>
+        {data
+          ? data
+              .slice(1, 5)
+              .map((post) => (
+                <PostThemeOne {...post} key={post.title}></PostThemeOne>
+              ))
+          : null}
       </div>
     </div>
   );

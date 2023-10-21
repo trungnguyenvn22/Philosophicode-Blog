@@ -102,7 +102,7 @@ const HeaderPage = () => {
                   >
                     {/* <Link to={"/dashboard"}>{items}</Link> */}
                     {isLogin == true && role === "ROLE_USER" ? (
-                      <Link to={"/user/profile"}>{items}</Link>
+                      <Link to={"/user"}>{items}</Link>
                     ) : (
                       <Link to={"/dashboard"}>{items}</Link>
                     )}

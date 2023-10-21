@@ -40,7 +40,9 @@ const PostItem = ({ ...post }) => {
             />
             <div className="ml-2">
               <h3 className="font-bold text-[12px]">{postCard.authorName}</h3>
-              <h3 className="text-gray-500 text-[10px]">Mar 23</h3>
+              <h3 className="text-gray-500 text-[10px]">
+                {postCard.createdAt}
+              </h3>
             </div>
           </div>
         </div>

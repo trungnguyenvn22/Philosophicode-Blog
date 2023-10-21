@@ -5,8 +5,10 @@ const PostThemeLarge = ({ ...post }) => {
   const [data, setData] = useState({});
   useEffect(() => {
     setData(post);
-    console.log("data", data);
   }, []);
+  const handleRedirectDetailPost = () => {
+    navigate(`/post/detail/${data.slug}`);
+  };
   return (
     <div className="max-w-[676px] max-h-[641px] w-full h-full px-5 pt-5">
       {data && data != null ? (
@@ -19,12 +21,13 @@ const PostThemeLarge = ({ ...post }) => {
             />
           </div>
           <div className="w-full h-48 flex-col">
-            <div className="text-2xl mt-2 mb-4 font-bold">
-              {/* Huobi và Justin Sun có biểu hiện lạ; luật thu thập ID có hiệu lực
-          tháng 1/2024 */}
+            <div
+              className="text-2xl mt-2 mb-4 font-bold"
+              onClick={handleRedirectDetailPost}
+            >
               {data.title}
             </div>
-            <div className="text-base font-sans font-bold mb-4">
+            <div className=" text-base font-sans font-bold mb-4">
               {data.description}
             </div>
             <div className="flex gap-4">

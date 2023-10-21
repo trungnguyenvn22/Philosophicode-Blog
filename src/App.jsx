@@ -28,7 +28,7 @@ import {
 } from "./service/userService";
 import PostAll from "./module/post/PostAll";
 import PostManage from "./module/post/PostManage";
-import ProfileUser from "./module/proflie/ProfileUser";
+// import ProfileUser from "./module/proflie/ProfileUser";
 import PostCategory from "./module/post/PostCategory";
 import { useEffect, useState } from "react";
 import UserProfile from "./page/UserProfile";
@@ -41,6 +41,8 @@ import ReactPostHome from "./module/post/PostHomeTheme/ReactPostHome";
 import PhilosophyPostHome from "./module/post/PostHomeTheme/PhilosophyPostHome";
 import HomeDetail from "./module/home/HomeDetail";
 import PostThemeLarge from "./module/post/PostHomeTheme/PostThemeLarge";
+import UserProfileUpdate from "./module/proflie/UserProfileUpdate";
+import UserLikePost from "./module/proflie/UserLikePost";
 
 // import { AuthProvider } from "./context/auth-context";
 
@@ -50,7 +52,7 @@ function App() {
       {/* <HomeBanner></HomeBanner> */}
       <AppProvider>
         <Routes>
-          <Route path="/profile" element={<ProfileUser></ProfileUser>}></Route>
+          {/* <Route path="/profile" element={<ProfileUser></ProfileUser>}></Route> */}
           <Route path="/sign-up" element={<SignUpForm></SignUpForm>}></Route>
           <Route path="/login" element={<LoginForm></LoginForm>}></Route>
           <Route
@@ -119,20 +121,16 @@ function App() {
             <Route path="posts" element={<PostManage></PostManage>}></Route>
           </Route>
 
-          <Route
-            path="/user/profile"
-            element={<UserProfile></UserProfile>}
-          ></Route>
-
-          <Route
-            path="/post-theme-1"
-            element={<JavaPostHome></JavaPostHome>}
-          ></Route>
-          <Route
-            path="/theme-text"
-            element={<ReactPostHome></ReactPostHome>}
-          ></Route>
-
+          <Route path="/user" element={<UserProfile></UserProfile>}>
+            <Route
+              path="/user/profile/:email"
+              element={<UserProfileUpdate></UserProfileUpdate>}
+            ></Route>
+            <Route
+              path="/user/post-liked/:email"
+              element={<UserLikePost></UserLikePost>}
+            ></Route>
+          </Route>
           <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
         </Routes>
       </AppProvider>

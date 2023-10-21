@@ -20,7 +20,6 @@ const PostManage = () => {
     } catch (err) {
       console.log(err);
     }
-    return () => {};
   }, []);
   return (
     <div className="max-w-[90%] mx-auto">

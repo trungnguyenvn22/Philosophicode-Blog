@@ -16,22 +16,20 @@ const ReactPostHome = () => {
       <div className="flex">
         {data && data.length > 0
           ? data
-              .slice(0, 2)
+              .slice(0, 3)
               .map((post) => (
-                <PostThemeImgText key={post.title} {...post}></PostThemeImgText>
+                <PostThemeImgText key={post.id} {...post}></PostThemeImgText>
               ))
           : null}
       </div>
       <div className="flex flex-wrap">
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
-        <PostThemeText></PostThemeText>
+        {data && data.length > 0
+          ? data
+              .slice(3, 12)
+              .map((post) => (
+                <PostThemeText key={post.id} {...post}></PostThemeText>
+              ))
+          : null}
       </div>
     </div>
   );

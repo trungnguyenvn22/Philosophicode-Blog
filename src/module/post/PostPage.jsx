@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { getPostBySlug } from "../../service/PostService";
 import { toast } from "react-toastify";
+import { getCurrentUserDatail } from "../../service/userService";
+import axios from "axios";
+import { api, apiPrivate } from "../../service/api/axios";
 
 const PostPage = () => {
   const [user, setUser] = useState();
@@ -15,7 +18,20 @@ const PostPage = () => {
     console.log(post);
   }, []);
   const handleAddLike = () => {
-    console.log("liked");
+    apiPrivate
+      .post(
+        `/api/user/new/add-post-liked?email=${
+          getCurrentUserDatail()?.email
+        }&postId=${post.dataResponse.id}`
+      )
+      .then((response) => {
+        console.log("liked post:", response);
+        if (response?.data?.errorCode == 2000) {
+          toast.success("bạn đã thích bài viết này!");
+        } else {
+          toast.error("Bạn đã thích bài viết này trước đó");
+        }
+      });
   };
 
   return (

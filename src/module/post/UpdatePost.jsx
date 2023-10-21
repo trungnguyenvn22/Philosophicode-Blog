@@ -38,8 +38,7 @@ const UpdatePost = () => {
       const post = {
         title: values.title,
         description: values.description,
-        image:
-          "https://images.unsplash.com/photo-1682687219356-e820ca126c92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
+        image: values.image,
         slug: values.slug,
         content: content,
         categoryName: values.category,

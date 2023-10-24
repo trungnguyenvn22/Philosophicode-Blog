@@ -177,7 +177,7 @@ public class PostServiceImpl implements PostService {
             if (listPost != null){
                 for (Post p:listPost
                      ) {
-                    result.add(new PostResponse(p.getTitle(),p.getDescription(), p.getImage(), p.getSlug(), p.getCreateAt(),p.getUpdateAt(), p.getContent(), p.getIsDelete(),p.getCategory().getTitle(), p.getAuthor().getUsername()));
+                    result.add(new PostResponse(p.getId(),p.getTitle(),p.getDescription(), p.getImage(), p.getSlug(), p.getCreateAt(),p.getUpdateAt(), p.getContent(), p.getIsDelete(),p.getCategory().getTitle(), p.getAuthor().getUsername()));
                 }
             }
             if (result != null){
@@ -240,7 +240,7 @@ public class PostServiceImpl implements PostService {
             Category category = categoryRepository.getCategoryBySlug(postRequest.getSlug());
 
             if (post != null){
-                post.setUpdateAt(null);
+                post.setUpdateAt(new Date(System.currentTimeMillis()));
                 post.setTitle(postRequest.getTitle());
                 post.setSlug(postRequest.getSlug());
                 post.setContent(postRequest.getContent());

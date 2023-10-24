@@ -106,7 +106,7 @@ public class PostController {
         PostResponse postResponse = null;
         try {
             Post post = postService.getPostBySlug(slug);
-            postResponse = new PostResponse(post.getTitle(),post.getDescription(),post.getImage(),post.getSlug(),post.getCreateAt(),post.getUpdateAt(),post.getContent(),post.getIsDelete(),post.getCategory().getSlug(),post.getAuthor().getUsername());
+            postResponse = new PostResponse(post.getId(),post.getTitle(),post.getDescription(),post.getImage(),post.getSlug(),post.getCreateAt(),post.getUpdateAt(),post.getContent(),post.getIsDelete(),post.getCategory().getSlug(),post.getAuthor().getUsername());
             commonResponse.setErrorCode(ErrorCode.SUCCESS.getKey());
             commonResponse.setMessage(ErrorCode.SUCCESS.getValue());
             commonResponse.setDataResponse(postResponse);

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-
+import { Navigate, useNavigate } from "react-router-dom";
 const PostThemeImgText = ({ ...post }) => {
+  const navigate = useNavigate();
   const [data, setData] = useState({});
+  const handleRedirectDetailPost = () => {
+    navigate(`/post/detail/${data.slug}`);
+  };
   useEffect(() => {
     setData(post);
   }, []);
@@ -18,7 +22,12 @@ const PostThemeImgText = ({ ...post }) => {
           </div>
           <div className="flex flex-col">
             <div className=" w-full h-14 my-4 ">
-              <span className="font-bold text-xl">{data.title}</span>
+              <span
+                className="font-bold text-xl cursor-pointer"
+                onClick={handleRedirectDetailPost}
+              >
+                {data.title}
+              </span>
             </div>
             <div className="mb-4">
               <span className="text-base font-medium">{data.description}</span>

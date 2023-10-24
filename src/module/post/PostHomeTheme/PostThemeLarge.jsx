@@ -1,7 +1,9 @@
 import { useScript } from "@uidotdev/usehooks";
 import React, { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const PostThemeLarge = ({ ...post }) => {
+  const navigate = useNavigate();
   const [data, setData] = useState({});
   useEffect(() => {
     setData(post);
@@ -21,11 +23,8 @@ const PostThemeLarge = ({ ...post }) => {
             />
           </div>
           <div className="w-full h-48 flex-col">
-            <div
-              className="text-2xl mt-2 mb-4 font-bold"
-              onClick={handleRedirectDetailPost}
-            >
-              {data.title}
+            <div className="text-2xl mt-2 mb-4 font-bold cursor-pointer">
+              <h3 onClick={handleRedirectDetailPost}>{data.title}</h3>
             </div>
             <div className=" text-base font-sans font-bold mb-4">
               {data.description}

@@ -62,7 +62,7 @@ const UserProfile = () => {
                   </div>
                 </li>
                 <li className="flex justify-between py-3 px-5 hover:bg-gray-300 rounded-lg ">
-                  <Link to={`/user/profile/${getCurrentUserDatail().email}`}>
+                  <Link to={`/user/profiles/${getCurrentUserDatail().email}`}>
                     <h3 className="font-medium text-lg  ">Profile Setting</h3>
                   </Link>
                   <span>

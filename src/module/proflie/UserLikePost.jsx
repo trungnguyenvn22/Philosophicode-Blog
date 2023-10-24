@@ -16,7 +16,7 @@ const UserLikePost = () => {
     getPostLikedByUser();
   }, []);
   return (
-    <div className="w-full h-full m-4 flex flex-wrap">
+    <div className="w-full h-full m-4 flex-col">
       <div className="">
         {data && data != null
           ? data.map((post) => <PostItem {...post} key={post.id}></PostItem>)

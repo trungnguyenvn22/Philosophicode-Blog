@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { getCurrentUserDatail } from "../../service/userService";
 import axios from "axios";
 import { api, apiPrivate } from "../../service/api/axios";
+import CommentPost from "../comment/CommentPost";
 
 const PostPage = () => {
   const [user, setUser] = useState();
@@ -14,6 +15,7 @@ const PostPage = () => {
   useEffect(() => {
     getPostBySlug(slug).then((response) => {
       setPost(response.data);
+      console.log(post);
     });
     console.log(post);
   }, []);
@@ -69,6 +71,9 @@ const PostPage = () => {
             dangerouslySetInnerHTML={{ __html: post.dataResponse.content }}
           ></div> */}
         </div>
+        <div>
+          <CommentPost postId={post?.dataResponse?.id}></CommentPost>
+        </div>
         <div className="">
           <h3 className="max-w-xs mx-auto text-3xl font-medium">Relative</h3>
         </div>
@@ -110,6 +115,7 @@ const PostPage = () => {
           </svg>
         </div>
       </div>
+      {/* <Comment></Comment> */}
     </div>
   );
 };

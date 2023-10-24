@@ -43,6 +43,7 @@ import HomeDetail from "./module/home/HomeDetail";
 import PostThemeLarge from "./module/post/PostHomeTheme/PostThemeLarge";
 import UserProfileUpdate from "./module/proflie/UserProfileUpdate";
 import UserLikePost from "./module/proflie/UserLikePost";
+import CommentPost from "./module/comment/CommentPost";
 
 // import { AuthProvider } from "./context/auth-context";
 
@@ -131,6 +132,7 @@ function App() {
               element={<UserLikePost></UserLikePost>}
             ></Route>
           </Route>
+          <Route path="/comment" element={<CommentPost></CommentPost>}></Route>
           <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
         </Routes>
       </AppProvider>

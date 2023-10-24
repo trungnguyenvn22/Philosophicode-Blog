@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import { Navigate, useNavigate } from "react-router-dom";
 const PostThemeText = ({ ...post }) => {
   const [data, setData] = useState({});
+  const navigate = useNavigate();
   useEffect(() => {
     setData(post);
   }, []);
@@ -11,7 +12,7 @@ const PostThemeText = ({ ...post }) => {
   return (
     <div className="w-[442px] h-24 p-4 flex flex-col ">
       <div
-        className="w-full h-12 mt-2 mb-4 pt-2 font-bold text-lg border-t-[1px] border-gray-200"
+        className="cursor-pointer w-full h-12 mt-2 mb-4 pt-2 font-bold text-lg border-t-[1px] border-gray-200"
         onClick={handleRedirectDetailPost}
       >
         {data.title}
